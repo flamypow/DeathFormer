@@ -84,8 +84,6 @@ namespace Code.Scripts.Player
             {
                 if (!val) Data.TimeEnteredAir = Time.time;
             };
-            
-
         }
 
         private void StateSetup()
