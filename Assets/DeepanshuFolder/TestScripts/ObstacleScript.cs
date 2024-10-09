@@ -13,8 +13,8 @@ public class ObstacleScript : MonoBehaviour
         
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            Destroy(other.gameObject,1.5f);
-            
+            ((PlayerController)other.gameObject.GetComponent<PlayerController>()).Death();
+
             Vector2 collisionPosition = other.transform.position;
             SpawnPlatformWhenCollide(collisionPosition);
            
