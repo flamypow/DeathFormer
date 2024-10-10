@@ -84,8 +84,6 @@ namespace Code.Scripts.Player
             {
                 if (!val) Data.TimeEnteredAir = Time.time;
             };
-            
-
         }
 
         private void StateSetup()
@@ -109,7 +107,7 @@ namespace Code.Scripts.Player
 
         public void CancelJump()
         {
-            
+//when jump is let go
              ((PlayerBaseState)_currentState).HandleJumpExit();
         }
 
@@ -138,7 +136,7 @@ namespace Code.Scripts.Player
         private void ActualDeath()
         {
             EventData.HandlePlayerDeath(this);
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

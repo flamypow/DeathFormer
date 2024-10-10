@@ -25,7 +25,8 @@ namespace Code.Scripts.Player
         [field: SerializeField, Range(.5f, 2f)]
         public float DefaultGravityScale { get; private set; } = 1f;
         [field: SerializeField] public bool VariableJumpHeight { get; private set; }
-        
+        [field: SerializeField, Range(0f, 2f)] public float RejumpTime { get; private set; } = 0.5f;
+
         [field: SerializeField, Range(0.0f, 0.3f), Header("Other Settings")] public float JumpBufferTime { get; private set; } = .15f;
 
         [field: SerializeField, Range(0.0f, 0.3f)] public float CoyoteTime { get; private set; }
