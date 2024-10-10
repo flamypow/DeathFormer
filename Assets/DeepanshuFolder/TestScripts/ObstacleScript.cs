@@ -34,7 +34,9 @@ public class ObstacleScript : MonoBehaviour
         {
             int randomIndex = Random.Range(0, PlatformPrefabs.Count);
             GameObject prefabToSpawn = PlatformPrefabs[randomIndex];
-            Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+            GameObject spawnedPlatform = Instantiate(prefabToSpawn, new Vector2(spawnPosition.x, this.transform.position.y + 0.4f) , Quaternion.identity);
+            GameManager.Instance.newDeathPlatform(spawnedPlatform);
+
         }
     }  
 }
