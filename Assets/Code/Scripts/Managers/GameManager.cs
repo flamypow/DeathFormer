@@ -12,6 +12,8 @@ namespace Code.Scripts.Managers
         [SerializeField] PauseMenu pauseMenu;
         private bool gamePaused = false;
 
+        [SerializeField] InGameUI gameUI;
+
         public void gainExtraLive()
         {
             playerLives = playerLives++;
@@ -19,6 +21,7 @@ namespace Code.Scripts.Managers
         public void newDeathPlatform(GameObject corpse)
         {
             corpseGameObjectQueue.Enqueue(corpse);
+            gameUI.playerDeath();
             if (corpseGameObjectQueue.Count > playerLives)
             {
                 Destroy(corpseGameObjectQueue.Dequeue());
@@ -42,6 +45,7 @@ namespace Code.Scripts.Managers
         void OnLevelWasLoaded()
         {
             pauseMenu = GameObject.FindAnyObjectByType<PauseMenu>();
+            gameUI = GameObject.FindAnyObjectByType<InGameUI>();
         }
         void Update()
         {
