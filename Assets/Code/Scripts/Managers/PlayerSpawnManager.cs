@@ -23,6 +23,11 @@ namespace Code.Scripts.Managers
         {
             Instantiate(_playerPrefab, spawnTransform);
         }
+        void OnLevelWasLoaded()
+        {
+            _defaultSpawn = GameObject.FindGameObjectWithTag("DefaultRespawn").transform;
+            Initialize();
+        }
 
     }
 }

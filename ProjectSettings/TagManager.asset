@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - DefaultRespawn
   layers:
   - Default
   - TransparentFX
@@ -12,7 +13,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - UICursor
   - 
   - 
   - 
@@ -47,4 +48,10 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 1591187077
+    locked: 0
+  - name: UI
+    uniqueID: 227947511
+    locked: 0
+  - name: UICursor
+    uniqueID: 1093953205
     locked: 0

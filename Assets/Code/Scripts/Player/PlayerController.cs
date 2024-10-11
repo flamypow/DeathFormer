@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Scripts.Managers;
 using Code.Scripts.StateMachine;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -138,5 +139,13 @@ namespace Code.Scripts.Player
             EventData.HandlePlayerDeath(this);
             Destroy(this.gameObject);
         }
+
+        public void PauseGame()
+        {
+            GameManager.Instance.PauseUnpause();
+        }
+
     }
+
+    
 }
