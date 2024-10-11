@@ -8,10 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/William/MainMenu_William.unity
     guid: e4d296e486afbbf4f833e016354f536d
-  - enabled: 0
+  - enabled: 1
     path: Assets/William/Gym.unity
     guid: d4879af5a44e22642be7ea590b62da7c
-  - enabled: 1
-    path: Assets/William/Gym 1.unity
-    guid: e875f6c6321f4e64794f1f0cf55255f4
   m_configObjects: {}

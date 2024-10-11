@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Code.Scripts.Player;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Code.Scripts.Managers

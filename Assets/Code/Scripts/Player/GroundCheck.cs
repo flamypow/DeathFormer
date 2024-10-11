@@ -9,6 +9,7 @@ namespace Code.Scripts.Player
         [SerializeField] private float _groundCheckDelay = .01f;
         [SerializeField] private Vector3 _colliderOffset;
         [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private Vector2 raycastSize;
         public event Action<bool> GroundChanged;
         private bool _isGrounded = false;
         private float _timeSinceDelay;
@@ -42,7 +43,10 @@ namespace Code.Scripts.Player
         {
             if (Time.time - _timeSinceDelay < _groundCheckDelay)
                 return;
-            IsGrounded = Physics2D.Raycast(transform.position + _colliderOffset, Vector2.down, _groundCheckDistance, _groundLayer) || Physics2D.Raycast(transform.position - _colliderOffset, Vector2.down, _groundCheckDistance, _groundLayer);
+            IsGrounded = Physics2D.BoxCast(transform.position + _colliderOffset, raycastSize, 0, Vector2.down, _groundCheckDistance, _groundLayer) || Physics2D.BoxCast(transform.position - _colliderOffset, raycastSize, 0, Vector2.down, _groundCheckDistance, _groundLayer);
         }
+
+
+
     }
 }

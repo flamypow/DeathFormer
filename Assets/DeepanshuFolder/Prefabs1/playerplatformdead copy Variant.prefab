@@ -63,6 +63,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7476603813671565103, guid: 2ac151b9ad4531e4f99295641d9b7690, type: 3}
       insertIndex: -1
       addedObject: {fileID: 195084954047249672}
+    - targetCorrespondingSourceObject: {fileID: 7476603813671565103, guid: 2ac151b9ad4531e4f99295641d9b7690, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8707535801790389149}
   m_SourcePrefab: {fileID: 100100000, guid: 2ac151b9ad4531e4f99295641d9b7690, type: 3}
 --- !u!1 &1633594992187731410 stripped
 GameObject:
@@ -71,6 +74,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!61 &195084954047249672
 BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633594992187731410}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.47, y: 0.07}
+    newSize: {x: 0.47, y: 0.07}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.47, y: 0.07}
+  m_EdgeRadius: 0
+--- !u!60 &8707535801790389149
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,6 +159,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.47, y: 0.07}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.18635787, y: 0.008649255}
+      - {x: -0.17542446, y: -0.00072841765}
+      - {x: -0.15938476, y: -0.03500004}
+      - {x: 0.21208632, y: -0.03614569}
+      - {x: 0.19719239, y: -0.015622328}
+      - {x: 0.07229847, y: 0.012086328}
+  m_UseDelaunayMesh: 0

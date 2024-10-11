@@ -85,6 +85,7 @@ namespace Code.Scripts.Player
             {
                 if (!val) Data.TimeEnteredAir = Time.time;
             };
+            HandleMovement(Vector2.zero);
         }
 
         private void StateSetup()
@@ -97,7 +98,6 @@ namespace Code.Scripts.Player
 
         public void HandleMovement(Vector2 movement)
         {
-            
             Data.MovementDirection = movement.x;
         }
 
