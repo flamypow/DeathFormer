@@ -11,7 +11,7 @@ public class Collectibles : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void OnCollected()
+    protected virtual void OnCollected()
     {
         Debug.Log("BaseCollectibles.ONCollected");
     }

@@ -16,7 +16,7 @@ namespace Code.Scripts.Managers
 
         public void gainExtraLive()
         {
-            playerLives = playerLives++;
+            playerLives += 1;
             gameUI.playerGainLife();
         }
         public void newDeathPlatform(GameObject corpse)
