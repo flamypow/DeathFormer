@@ -33,6 +33,11 @@ namespace Code.Scripts.Player
         {
             
         }
+
+        public virtual void HandleHang()
+        {
+            _player.ChangeState(PlayerStates.Hanging);
+        }
         protected virtual void SetPhysics()
         {
             var newGravity = -2f * _player.Data.JumpHeight / (_player.Data.TimeToApex * _player.Data.TimeToApex);

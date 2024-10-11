@@ -36,5 +36,6 @@ namespace Code.Scripts.Player
         public const string AIR = "JumpMid";
         public const string JUMP = "Jump";
         public const string DIE = "DeathSampleAnim";
+        public const string HANGING = "Hanging";
     }
 }

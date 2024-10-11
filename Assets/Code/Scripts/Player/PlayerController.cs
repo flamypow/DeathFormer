@@ -9,7 +9,7 @@ using State = Code.Scripts.StateMachine.State;
 
 namespace Code.Scripts.Player
 {
-    public enum PlayerStates{Idle, Run, Jumping, InAir}
+    public enum PlayerStates{Idle, Run, Jumping, InAir, Hanging}
 
     public class PlayerInfo
     {
@@ -31,6 +31,7 @@ namespace Code.Scripts.Player
         public Rigidbody2D RB { get; private set; }
         public bool IsRunning { get; private set; } = false;
        
+        public bool CanClimb { get; set; }
         public bool IsGrounded => _groundCheck.IsGrounded;
         public void DelayGroundCheck ()=> _groundCheck.DelayGrounding();
         #endregion
@@ -40,6 +41,7 @@ namespace Code.Scripts.Player
         private PlayerRunState _runState;
         private PlayerJumpingState _jumpingState;
         private PlayerInAirState _inAirState;
+        private PlayerHangingState _hanging;
         
 
         #endregion
@@ -70,6 +72,9 @@ namespace Code.Scripts.Player
                 case PlayerStates.InAir:
                     ChangeState(_inAirState);
                     break;
+                case PlayerStates.Hanging:
+                    ChangeState(_hanging);
+                    break;
             }
         }
 
@@ -94,6 +99,7 @@ namespace Code.Scripts.Player
             _runState = new PlayerRunState(this);
             _jumpingState = new PlayerJumpingState(this);
             _inAirState = new PlayerInAirState(this);
+            _hanging = new PlayerHangingState(this);
         }
 
         public void HandleMovement(Vector2 movement)
@@ -104,6 +110,11 @@ namespace Code.Scripts.Player
         public void HandleJump()
         {
             ((PlayerBaseState)_currentState).HandleJump();
+        }
+
+        public void HangleHang()
+        {
+            ((PlayerBaseState)_currentState).HandleHang();
         }
 
         public void CancelJump()

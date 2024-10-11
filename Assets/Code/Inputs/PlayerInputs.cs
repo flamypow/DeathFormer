@@ -53,6 +53,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CollectCorpse"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6edd7bb-2f6e-4946-8e7d-191c9674e9b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -174,6 +183,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""610d3b72-6ce0-4427-9806-a3466c8997e4"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CollectCorpse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -423,6 +443,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_PlayerActions_Movement = m_PlayerActions.FindAction("Movement", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActions_Pause = m_PlayerActions.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerActions_CollectCorpse = m_PlayerActions.FindAction("CollectCorpse", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Select = m_Menu.FindAction("Select", throwIfNotFound: true);
@@ -491,6 +512,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Movement;
     private readonly InputAction m_PlayerActions_Jump;
     private readonly InputAction m_PlayerActions_Pause;
+    private readonly InputAction m_PlayerActions_CollectCorpse;
     public struct PlayerActionsActions
     {
         private @PlayerInputs m_Wrapper;
@@ -498,6 +520,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerActions_Movement;
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
         public InputAction @Pause => m_Wrapper.m_PlayerActions_Pause;
+        public InputAction @CollectCorpse => m_Wrapper.m_PlayerActions_CollectCorpse;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -516,6 +539,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @CollectCorpse.started += instance.OnCollectCorpse;
+            @CollectCorpse.performed += instance.OnCollectCorpse;
+            @CollectCorpse.canceled += instance.OnCollectCorpse;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -529,6 +555,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @CollectCorpse.started -= instance.OnCollectCorpse;
+            @CollectCorpse.performed -= instance.OnCollectCorpse;
+            @CollectCorpse.canceled -= instance.OnCollectCorpse;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -623,6 +652,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnCollectCorpse(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

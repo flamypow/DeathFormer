@@ -14,10 +14,19 @@ namespace Code.Scripts.Managers
 
         [SerializeField] InGameUI gameUI;
 
+        [SerializeField] private int collectedSouls = 0;
+
         public void gainExtraLive()
         {
             playerLives += 1;
             gameUI.playerGainLife();
+        }
+
+        public void gainSoul()
+        {
+            collectedSouls += 1;
+            Debug.Log("you got a soul");
+            //TODO:UI add souls maybe
         }
         public void newDeathPlatform(GameObject corpse)
         {
