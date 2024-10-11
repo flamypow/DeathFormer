@@ -8,20 +8,30 @@ namespace Code.Scripts.Managers
         [SerializeField] private Transform _defaultSpawn;
 
         [SerializeField] private GameObject _playerPrefab;
+
+        [SerializeField] private GameObject _currentPlayer;
         protected override void Initialize()
         {
-            if(_playerPrefab!= null)
+            if (_playerPrefab != null)
+            {
                 Invoke("SpawnPlayer", 1f);
+            }
         }
 
         private void SpawnPlayer()
         {
-            Instantiate(_playerPrefab, _defaultSpawn);
+            if (_currentPlayer == null)
+            {
+                _currentPlayer = Instantiate(_playerPrefab, _defaultSpawn);
+            }
         }
 
         public void SpawnPlayer(Transform spawnTransform)
         {
-            Instantiate(_playerPrefab, spawnTransform);
+            if (_currentPlayer == null)
+            {
+                _currentPlayer = Instantiate(_playerPrefab, spawnTransform);
+            }
         }
         void OnLevelWasLoaded()
         {

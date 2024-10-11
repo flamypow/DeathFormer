@@ -142,7 +142,7 @@ namespace Code.Scripts.Player
 
         public void PauseGame()
         {
-            GameManager.Instance.PauseUnpause();
+            GameManager.Instance.GamePause();
         }
 
     }

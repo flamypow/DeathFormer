@@ -6,7 +6,7 @@ namespace Code.Scripts.Managers
 {
     public class GameManager : Singleton<GameManager>
     {
-        [SerializeField] private int playerLives;
+        [SerializeField] private int playerLives = 3;
         private Queue<GameObject> corpseGameObjectQueue = new Queue<GameObject>();
 
         [SerializeField] PauseMenu pauseMenu;
@@ -28,9 +28,15 @@ namespace Code.Scripts.Managers
             }
         }
 
-        public void PauseUnpause()
+
+        public void GamePause()
         {
-            gamePaused = !gamePaused;
+            gamePaused = true;
+            pauseMenu?.SetInnerActive(gamePaused);
+        }
+        public void GameUnpause()
+        {
+            gamePaused = false;
             pauseMenu?.SetInnerActive(gamePaused);
         }
 

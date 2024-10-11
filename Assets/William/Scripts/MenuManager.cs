@@ -29,7 +29,7 @@ public class MenuManager : MonoBehaviour
     public void HandleConfirm()
     {
         buttons[cursorLocation].onClick.Invoke();
-        GameManager.Instance.PauseUnpause();
+        GameManager.Instance.GameUnpause();
     }
 
     public void HandleSelect(Vector2 inputVector)
