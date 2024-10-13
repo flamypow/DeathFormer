@@ -19,7 +19,7 @@ namespace Code.Scripts.Managers
         public void gainExtraLive()
         {
             playerLives += 1;
-            gameUI.playerGainLife();
+            gameUI.playerGainAdditionalLife();
         }
 
         public void gainSoul()
@@ -38,6 +38,14 @@ namespace Code.Scripts.Managers
             }
         }
 
+        public void clearDeathPlatforms()
+        {
+            gameUI.ResetCorpse();
+            while (corpseGameObjectQueue.Count > 0)
+            {
+                Destroy(corpseGameObjectQueue.Dequeue());
+            }
+        }
 
         public void GamePause()
         {

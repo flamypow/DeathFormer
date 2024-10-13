@@ -189,10 +189,21 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""610d3b72-6ce0-4427-9806-a3466c8997e4"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""CollectCorpse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6baef542-9592-44e6-8a6b-7ee5702a419d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""CollectCorpse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

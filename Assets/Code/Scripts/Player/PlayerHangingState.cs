@@ -29,6 +29,8 @@ namespace Code.Scripts.Player
         public override void HandleJump()
         {
             _player.Data.GravityMultiplier = 1;
+
+            _player.gameObject.transform.SetParent(null);
             base.HandleJump();
         }
 
@@ -37,6 +39,7 @@ namespace Code.Scripts.Player
             //base.FixedUpdate();
             if (_player.IsGrounded)
             {
+                _player.gameObject.transform.SetParent(null);
                 _player.ChangeState(PlayerStates.Idle);
                 return;
             }

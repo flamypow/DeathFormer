@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Code.Scripts.Managers;
 using Code.Scripts.Player;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ public class PlayerInputController : MonoBehaviour
             _playerInputs.PlayerActions.Jump.performed += (val) => _playerController.HandleJump();
             _playerInputs.PlayerActions.Jump.canceled += (val) => _playerController.CancelJump();
             _playerInputs.PlayerActions.Pause.performed += (val) => _playerController.PauseGame();
+            _playerInputs.PlayerActions.CollectCorpse.performed += (val) => GameManager.Instance.clearDeathPlatforms();
         }
         _playerInputs.Enable();
     }

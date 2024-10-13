@@ -14,12 +14,12 @@ namespace Code.Scripts.Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-
-            if (other.CompareTag("Obstacle"))
-            {
-                _animator.Play(PlayerAnimationConstants.DIE);
+            //this need to be fixed before you can use it. 
+            //if (other.CompareTag("Obstacle"))
+            //{
+            //    _animator.Play(PlayerAnimationConstants.DIE);
                 
-            }
+            //}
         }
         
         public void PlayAnimation(string animationName)
@@ -35,7 +35,7 @@ namespace Code.Scripts.Player
         public const string RUN = "Run";
         public const string AIR = "JumpMid";
         public const string JUMP = "Jump";
-        public const string DIE = "DeathSampleAnim";
+        //public const string DIE = "DeathSampleAnim";
         public const string HANGING = "Hanging";
     }
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 571293221033873315}
   - component: {fileID: 5345364252738103744}
   - component: {fileID: 7863445461776185068}
-  - component: {fileID: 982006638650763528}
   m_Layer: 0
   m_Name: obstacleColliderLeft
   m_TagString: Obstacle
@@ -51,7 +50,7 @@ MonoBehaviour:
   - {fileID: 540613504139820433, guid: ed3a1473b057d7f46bb61cfa914cd3be, type: 3}
   _playerReturnLocation: {fileID: 0}
   _timeToRespawn: 2
-  spawnOffset: {x: 0, y: 0}
+  spawnOffset: {x: 0.2, y: 0}
 --- !u!61 &5345364252738103744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -95,7 +94,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.36}
+  m_Size: {x: 0.15, y: 0.46}
   m_EdgeRadius: 0
 --- !u!50 &7863445461776185068
 Rigidbody2D:
@@ -124,22 +123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &982006638650763528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419661933339838265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c9776e35f429145b37be3dc7f5f263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlatformPrefabs: []
-  _playerReturnLocation: {fileID: 0}
-  _timeToRespawn: 2
-  spawnOffset: {x: 0, y: 0}
 --- !u!1 &3720472316135319097
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +293,6 @@ GameObject:
   - component: {fileID: 3197891607827170818}
   - component: {fileID: 803391692177719931}
   - component: {fileID: 7930777935434124950}
-  - component: {fileID: 6400107048625732872}
   m_Layer: 0
   m_Name: obstacleColliderRight
   m_TagString: Obstacle
@@ -349,7 +331,7 @@ MonoBehaviour:
   - {fileID: 8506753805098285939, guid: c48888f0eb4288147a3c8ca7f5056813, type: 3}
   _playerReturnLocation: {fileID: 0}
   _timeToRespawn: 2
-  spawnOffset: {x: 0, y: 0}
+  spawnOffset: {x: -0.4, y: 0}
 --- !u!61 &803391692177719931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -393,7 +375,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.36}
+  m_Size: {x: 0.15, y: 0.46}
   m_EdgeRadius: 0
 --- !u!50 &7930777935434124950
 Rigidbody2D:
@@ -422,22 +404,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &6400107048625732872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6240969282077251735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c9776e35f429145b37be3dc7f5f263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlatformPrefabs: []
-  _playerReturnLocation: {fileID: 0}
-  _timeToRespawn: 2
-  spawnOffset: {x: 0, y: 0}
 --- !u!1 &7745148862919811390
 GameObject:
   m_ObjectHideFlags: 0
