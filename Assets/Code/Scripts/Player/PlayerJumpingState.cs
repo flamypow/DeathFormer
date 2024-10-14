@@ -12,7 +12,7 @@ namespace Code.Scripts.Player
         {
             
             _player.Data.GravityMultiplier = _player.Data.DefaultGravityScale;
-            var jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * _player.RB.gravityScale * _player.Data.JumpHeight);
+            var jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * 2.45f * _player.Data.JumpHeight);
             jumpSpeed = Mathf.Clamp(jumpSpeed, 0f, _player.Data.JumpHeight * 4f);
             _player.Data.IsJumping = true;
             _player.DelayGroundCheck();

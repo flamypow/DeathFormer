@@ -34,7 +34,7 @@ namespace Code.Scripts.Player
                 _player.ChangeState(PlayerStates.InAir);
                 return;
             }
-            if(_player.RB.velocity.magnitude <= 0.0001f)
+            if(_player.RB.velocity.magnitude <= 0.05f)
                 _player.ChangeState(PlayerStates.Idle);
         }
     }

@@ -7,20 +7,24 @@ public class ObstacleScript : MonoBehaviour
     [SerializeField] public List<GameObject> PlatformPrefabs; 
     [SerializeField] private Transform _playerReturnLocation;
     [SerializeField] private float _timeToRespawn = 2f;
-   
+    private GameObject spawnedPlatform;
+    [SerializeField] private Vector2 spawnOffset;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        if (other.gameObject.GetComponent<PlayerController>())
+        if (spawnedPlatform == null)
         {
-            ((PlayerController)other.gameObject.GetComponent<PlayerController>()).Death();
+            if (other.gameObject.GetComponent<PlayerController>())
+            {
+                ((PlayerController)other.gameObject.GetComponent<PlayerController>()).Death();
 
-            Vector2 collisionPosition = other.transform.position;
-            SpawnPlatformWhenCollide(collisionPosition);
-           
-          //  ((PlayerController)other.gameObject.GetComponent<PlayerController>()).Death();
-            Invoke("Respawn", _timeToRespawn);
+                Vector2 collisionPosition = other.transform.position;
+                SpawnPlatformWhenCollide(collisionPosition);
+
+                //  ((PlayerController)other.gameObject.GetComponent<PlayerController>()).Death();
+                Invoke("Respawn", _timeToRespawn);
+            }
         }
+        
     }
 
     private void Respawn()
@@ -34,9 +38,14 @@ public class ObstacleScript : MonoBehaviour
         {
             int randomIndex = Random.Range(0, PlatformPrefabs.Count);
             GameObject prefabToSpawn = PlatformPrefabs[randomIndex];
-            GameObject spawnedPlatform = Instantiate(prefabToSpawn, new Vector2(spawnPosition.x, this.transform.position.y + 0.4f) , Quaternion.identity);
+            spawnedPlatform = Instantiate(prefabToSpawn, new Vector2(spawnPosition.x + spawnOffset.x, this.transform.position.y + spawnOffset.y), prefabToSpawn.transform.rotation, this.gameObject.transform);
             GameManager.Instance.newDeathPlatform(spawnedPlatform);
 
         }
-    }  
+    }
+
+    private GameObject Instantiate(GameObject prefabToSpawn, Vector2 vector2)
+    {
+        throw new System.NotImplementedException();
+    }
 }
