@@ -26,6 +26,8 @@ namespace Code.Scripts.Managers
             if (_currentPlayer == null)
             {
                 _currentPlayer = Instantiate(_playerPrefab, _currentSpawn);
+                // Find the collect NAv
+                // Tell it the player information
             }
         }
 
