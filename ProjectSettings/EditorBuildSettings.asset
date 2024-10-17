@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/William/Gym.unity
     guid: d4879af5a44e22642be7ea590b62da7c
+  - enabled: 1
+    path: Assets/DeepanshuFolder/TesScenes/TutorialLevel.unity
+    guid: d4d9551cfc3f0f6448c01e051f91ba88
+  - enabled: 1
+    path: Assets/DeepanshuFolder/TesScenes/Level1.unity
+    guid: ef42634bb7cbe6c45886fac39838b142
   m_configObjects: {}

@@ -14,7 +14,7 @@ namespace Code.Scripts.Managers
 
         [SerializeField] InGameUI gameUI;
 
-        [SerializeField] private int collectedSouls = 0;
+        [SerializeField] public int collectedSouls = 0;
 
         public void gainExtraLive()
         {

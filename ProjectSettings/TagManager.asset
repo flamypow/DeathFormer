@@ -15,7 +15,7 @@ TagManager:
   - UI
   - UICursor
   - Player
-  - 
+  - Gate
   - 
   - 
   - 
@@ -54,4 +54,7 @@ TagManager:
     locked: 0
   - name: UICursor
     uniqueID: 1093953205
+    locked: 0
+  - name: Portal
+    uniqueID: 2586988627
     locked: 0
