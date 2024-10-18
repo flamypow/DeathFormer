@@ -7,6 +7,7 @@ using UnityEngine;
 public class NextLevelGate : MonoBehaviour
 {
     [SerializeField] private GameObject targetObject;
+    [SerializeField] 
 
     void Start()
     {

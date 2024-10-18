@@ -105,6 +105,7 @@ namespace Code.Scripts.Player
         public void HandleMovement(Vector2 movement)
         {
             Data.MovementDirection = movement.x;
+            AudioManager.Instance.PlayAudio(AudioType.PLAYERFOOTSTEP);
         }
 
         public void HandleJump()
