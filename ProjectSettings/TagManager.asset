@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
+  - DefaultRespawn
   layers:
   - Default
   - TransparentFX
@@ -11,9 +13,9 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - UICursor
+  - Player
+  - Gate
   - 
   - 
   - 
@@ -40,4 +42,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bg1
+    uniqueID: 1779533201
+    locked: 0
+  - name: Ground
+    uniqueID: 1591187077
+    locked: 0
+  - name: UI
+    uniqueID: 227947511
+    locked: 0
+  - name: UICursor
+    uniqueID: 1093953205
+    locked: 0
+  - name: Portal
+    uniqueID: 2586988627
     locked: 0

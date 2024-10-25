@@ -1,6 +1,7 @@
 ﻿using System;
+using Code.Scripts.Managers;
 using Code.Scripts.StateMachine;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -8,7 +9,7 @@ using State = Code.Scripts.StateMachine.State;
 
 namespace Code.Scripts.Player
 {
-    public enum PlayerStates{Idle, Run, Jumping, InAir}
+    public enum PlayerStates{Idle, Run, Jumping, InAir, Hanging}
 
     public class PlayerInfo
     {
@@ -30,6 +31,7 @@ namespace Code.Scripts.Player
         public Rigidbody2D RB { get; private set; }
         public bool IsRunning { get; private set; } = false;
        
+        public bool CanClimb { get; set; }
         public bool IsGrounded => _groundCheck.IsGrounded;
         public void DelayGroundCheck ()=> _groundCheck.DelayGrounding();
         #endregion
@@ -39,6 +41,7 @@ namespace Code.Scripts.Player
         private PlayerRunState _runState;
         private PlayerJumpingState _jumpingState;
         private PlayerInAirState _inAirState;
+        private PlayerHangingState _hanging;
         
 
         #endregion
@@ -69,6 +72,9 @@ namespace Code.Scripts.Player
                 case PlayerStates.InAir:
                     ChangeState(_inAirState);
                     break;
+                case PlayerStates.Hanging:
+                    ChangeState(_hanging);
+                    break;
             }
         }
 
@@ -84,8 +90,7 @@ namespace Code.Scripts.Player
             {
                 if (!val) Data.TimeEnteredAir = Time.time;
             };
-            
-
+            HandleMovement(Vector2.zero);
         }
 
         private void StateSetup()
@@ -94,22 +99,36 @@ namespace Code.Scripts.Player
             _runState = new PlayerRunState(this);
             _jumpingState = new PlayerJumpingState(this);
             _inAirState = new PlayerInAirState(this);
+            _hanging = new PlayerHangingState(this);
         }
 
         public void HandleMovement(Vector2 movement)
         {
-            
             Data.MovementDirection = movement.x;
+            /*if (IsGrounded && Mathf.Abs(movement.x) > 0.5f)
+            {
+                AudioManager.Instance.PlayAudioContinuous(AudioType.PLAYERFOOTSTEP);
+            }
+            else
+            {
+                AudioManager.Instance.StopPlaying();
+            }*/
         }
 
         public void HandleJump()
         {
+            AudioManager.Instance.PlayAudio(AudioType.PLAYERJUMP);
             ((PlayerBaseState)_currentState).HandleJump();
+        }
+
+        public void HangleHang()
+        {
+            ((PlayerBaseState)_currentState).HandleHang();
         }
 
         public void CancelJump()
         {
-            
+//when jump is let go
              ((PlayerBaseState)_currentState).HandleJumpExit();
         }
 
@@ -131,6 +150,9 @@ namespace Code.Scripts.Player
 
         public void Death()
         {
+            AudioManager.Instance.StopPlaying();
+
+            AudioManager.Instance.PlayAudio(AudioType.PLAYERDIE);
             RB.constraints = RigidbodyConstraints2D.FreezeAll;
             Invoke("ActualDeath", Data.PlayerDeathDelay);
         }
@@ -138,7 +160,15 @@ namespace Code.Scripts.Player
         private void ActualDeath()
         {
             EventData.HandlePlayerDeath(this);
-            Destroy(this);
+            Destroy(this.gameObject);
         }
+
+        public void PauseGame()
+        {
+            GameManager.Instance.GamePause();
+        }
+
     }
+
+    
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using Code.Scripts.StateMachine;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Tilemaps;
+//using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Tilemaps;
 using UnityEngine;
 
 namespace Code.Scripts.Player
@@ -32,6 +32,11 @@ namespace Code.Scripts.Player
         public virtual void HandleJumpExit()
         {
             
+        }
+
+        public virtual void HandleHang()
+        {
+            _player.ChangeState(PlayerStates.Hanging);
         }
         protected virtual void SetPhysics()
         {

@@ -12,6 +12,16 @@ namespace Code.Scripts.Player
             _animator.Play(PlayerAnimationConstants.IDLE);
         }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            //this need to be fixed before you can use it. 
+            //if (other.CompareTag("Obstacle"))
+            //{
+            //    _animator.Play(PlayerAnimationConstants.DIE);
+                
+            //}
+        }
+        
         public void PlayAnimation(string animationName)
         {
             _animator?.Play(animationName);
@@ -25,5 +35,7 @@ namespace Code.Scripts.Player
         public const string RUN = "Run";
         public const string AIR = "JumpMid";
         public const string JUMP = "Jump";
+        //public const string DIE = "DeathSampleAnim";
+        public const string HANGING = "Hanging";
     }
 }
